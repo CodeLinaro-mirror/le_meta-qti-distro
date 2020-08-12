@@ -5,7 +5,7 @@
 ######################################################################
 
 # Pull in security flags
-require ${COREBASE}/meta-qti-bsp/conf/distro/include/security_flags.inc
+require ${COREBASE}/meta-qti-distro/conf/distro/include/security_flags.inc
 
 # DISTRO CONFIGURATION
 DISTRO_VERSION ?= "${BUILDNAME}"
