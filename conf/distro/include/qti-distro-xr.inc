@@ -34,8 +34,8 @@ DISTRO_FEATURES_append = " drm fbdev opencl opengl pulseaudio wayland"
 
 DISTRO_FEATURES_append = " qti-audio-cal qti-audio-encoder qti-bluetooth qti-camera qti-video-encoder qti-video-decoder qti-adsp qti-security "
 
-# inherit distro_featres_check class across the distro
-INHERIT += "distro_features_check"
+# Allow checking of required and conflicting features across the distro
+INHERIT += "features_check"
 
 # Set selinux in disabled state
 DEFAULT_ENFORCING ?= "disabled"

@@ -40,8 +40,8 @@ DISTRO_FEATURES_append = " drm dm-verity fbdev opencl opengl pulseaudio selinux 
 
 DISTRO_FEATURES_append = " qti-audio qti-bluetooth qti-camera qti-mm-parser qti-video qti-video-encoder qti-cdsp qti-adsp qti-fastcv qti-qmmf qti-security qti-vble "
 
-# inherit distro_featres_check class across the distro
-INHERIT += "distro_features_check"
+# Allow checking of required and conflicting features across the distro
+INHERIT += "features_check"
 
 # Include in native DISTRO_FEATURES if present in the target DISTRO_FEATURES.
 DISTRO_FEATURES_FILTER_NATIVE += " selinux"
