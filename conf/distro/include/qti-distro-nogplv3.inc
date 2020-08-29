@@ -18,3 +18,4 @@ WHITELIST_GPL-3.0 += "bash gettext elfutils gdbm  readline m4"
 PACKAGE_EXCLUDE +=   "bash gettext elfutils gdbm  readline m4"
 
 DISTRO_FEATURES_append = " selinux"
+DISTRO_FEATURES_FILTER_NATIVE += " selinux"
