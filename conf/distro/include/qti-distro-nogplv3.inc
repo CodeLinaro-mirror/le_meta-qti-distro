@@ -21,6 +21,3 @@ DISTRO_FEATURES_remove = " emmc-boot qti-ab-boot"
 
 DISTRO_FEATURES_append = " selinux nand-boot"
 DISTRO_FEATURES_FILTER_NATIVE += " selinux"
-
-# Whitelist packages having commercial license.
-LICENSE_FLAGS_WHITELIST  += "commercial_ffmpeg commercial_x264"
