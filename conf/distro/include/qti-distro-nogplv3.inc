@@ -21,3 +21,10 @@ DISTRO_FEATURES_remove = " emmc-boot qti-ab-boot"
 
 DISTRO_FEATURES_append = " selinux nand-boot"
 DISTRO_FEATURES_FILTER_NATIVE += " selinux"
+
+# This is a list of packages that may have license conflicts.
+# Carefully check individual package licences while adding
+# as part of an image to avoid implications.
+LICENSE_FLAGS_WHITELIST  += " \
+    commercial_ffmpeg \
+"
