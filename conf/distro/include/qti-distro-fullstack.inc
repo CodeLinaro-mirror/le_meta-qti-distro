@@ -48,3 +48,13 @@ DISTRO_FEATURES_FILTER_NATIVE += " selinux"
 
 # Set selinux in enforcing state by default
 DEFAULT_ENFORCING = "enforcing"
+
+# This is a list of packages that may have license conflicts.
+# Carefully check individual package licences while adding
+# as part of an image to avoid implications.
+LICENSE_FLAGS_WHITELIST  += " \
+    commercial_ffmpeg \
+    commercial_gstreamer1.0-libav \
+    commercial_gstreamer1.0-omx \
+    commercial_gstreamer1.0-plugins-ugly \
+"
