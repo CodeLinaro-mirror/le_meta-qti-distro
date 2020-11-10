@@ -66,6 +66,9 @@ SECURITY_CFLAGS_pn-lib32-media = "${SECURITY_PIC_CFLAGS}"
 SECURITY_CFLAGS_pn-qmmf-sdk = "${SECURITY_PIC_CFLAGS}"
 SECURITY_CFLAGS_pn-lib32-qmmf-sdk = "${SECURITY_PIC_CFLAGS}"
 
+# ROS packages
+SECURITY_CFLAGS_pn-yaml-cpp = "${SECURITY_PIC_CFLAGS}"
+
 #
 ### PACKAGES which can't compile with _FORTIFY_SOURCE
 #
