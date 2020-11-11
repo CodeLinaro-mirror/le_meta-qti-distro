@@ -39,3 +39,13 @@ INHERIT += "features_check"
 
 # Set selinux in disabled state
 DEFAULT_ENFORCING ?= "disabled"
+
+# This is a list of packages that may have license conflicts.
+# Carefully check individual package licences while adding
+# as part of an image to avoid implications.
+LICENSE_FLAGS_WHITELIST  += " \
+    commercial_ffmpeg \
+    commercial_gstreamer1.0-libav \
+    commercial_gstreamer1.0-omx \
+    commercial_gstreamer1.0-plugins-ugly \
+"
