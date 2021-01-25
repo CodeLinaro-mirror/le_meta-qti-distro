@@ -21,8 +21,9 @@ DISTRO_NAME = "QTI Linux full refrence stack distro."
 # selinux:         Use selinux for mandatory access control.
 # tensorflow-lite: Include the tensorflow lite inference engine.
 # wayland:         Include the Wayland display server protocol.
+# pam:             Include pam which is needed by fscrypt.
 
-DISTRO_FEATURES_append = " drm dm-verity fbdev opencl opengl pulseaudio selinux tensorflow-lite wayland"
+DISTRO_FEATURES_append = " drm dm-verity fbdev opencl opengl pulseaudio selinux pam  tensorflow-lite wayland"
 
 ## QTI defined distro features ##
 # qti-audio:     Support QTI audio solution
