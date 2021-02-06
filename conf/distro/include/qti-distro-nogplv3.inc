@@ -21,7 +21,7 @@ BBMASK += "meta-gplv2/recipes-.*/((?!${ALLOWED_GPLV2_RECIPES}).)*/"
 
 DISTRO_FEATURES_remove = " emmc-boot qti-ab-boot"
 
-DISTRO_FEATURES_append = " selinux nand-boot"
+DISTRO_FEATURES_append = " selinux nand-boot qti-vble"
 DISTRO_FEATURES_FILTER_NATIVE += " selinux"
 
 # This is a list of packages that may have license conflicts.
