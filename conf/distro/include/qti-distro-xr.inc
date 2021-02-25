@@ -35,7 +35,7 @@ DISTRO_FEATURES_append = " drm fbdev opencl opengl pulseaudio wayland"
 # qti-slpi, qti-sensors:      Support QTI sensors solution
 #
 
-DISTRO_FEATURES_append = " qti-audio-cal qti-audio-encoder qti-bluetooth qti-camera qti-video qti-video-encoder qti-video-decoder qti-adsp qti-cdsp qti-security qti-slpi qti-sensors qti-fastcv "
+DISTRO_FEATURES_append = " qti-audio-cal qti-audio-encoder qti-bluetooth qti-camera qti-video qti-video-encoder qti-video-decoder qti-adsp qti-cdsp qti-security qti-slpi qti-sensors qti-fastcv secure-playback "
 
 # Allow checking of required and conflicting features across the distro
 INHERIT += "features_check"
