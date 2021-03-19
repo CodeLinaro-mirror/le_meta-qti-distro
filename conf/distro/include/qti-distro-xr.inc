@@ -16,10 +16,9 @@ DISTRO_NAME = "QTI Linux extended realit distro."
 # fbdev:           Use FBDEV display drivers, provided machine supports it.
 # opencl:          Include the Open Computing Language
 # opengl:          Include the Open Graphics Library,
-# pulseaudio:      Use pulseaudio audio server
 # wayland:         Include the Wayland display server protocol.
 
-DISTRO_FEATURES_append = " drm fbdev opencl opengl pulseaudio wayland"
+DISTRO_FEATURES_append = " drm fbdev opencl opengl wayland"
 
 ## QTI defined distro features ##
 # qti-audio-cal: Support QTI audio calibration solution
@@ -35,7 +34,7 @@ DISTRO_FEATURES_append = " drm fbdev opencl opengl pulseaudio wayland"
 # qti-slpi, qti-sensors:      Support QTI sensors solution
 #
 
-DISTRO_FEATURES_append = " qti-audio-cal qti-audio-encoder qti-bluetooth qti-camera qti-video qti-video-encoder qti-video-decoder qti-adsp qti-cdsp qti-security qti-slpi qti-sensors qti-fastcv "
+DISTRO_FEATURES_append = " qti-audio-cal qti-audio-encoder qti-bluetooth qti-camera qti-video qti-video-encoder qti-video-decoder qti-adsp qti-cdsp qti-security qti-slpi qti-sensors qti-fastcv secure-playback "
 
 # Allow checking of required and conflicting features across the distro
 INHERIT += "features_check"
