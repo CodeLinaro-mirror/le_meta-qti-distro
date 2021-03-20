@@ -71,7 +71,8 @@ USERADDEXTENSION = "qpermissions"
 #             state and alter call, return sequences etc to change
 #             processor state as necessary.
 # xattr:      Extended attributes(xattr) to filesystem.
-DISTRO_FEATURES += " systemd eabi ipv6 ipv4 largefile thumb-interwork xattr ${DISTRO_FEATURES_LIBC}"
+# selinux:    SELinux support
+DISTRO_FEATURES += " systemd eabi ipv6 ipv4 largefile thumb-interwork xattr ${DISTRO_FEATURES_LIBC} selinux"
 
 ## QTI Defined distro features ##
 # emmc-boot:  Support eMMC device
