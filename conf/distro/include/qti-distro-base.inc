@@ -12,6 +12,13 @@ DISTRO_VERSION ?= "${BUILDNAME}"
 
 DISTROOVERRIDES =. "qti-distro-base:"
 
+# SDK variables.
+SDK_VENDOR = "-qtisdk"
+SDK_VERSION = "${@d.getVar('DISTRO_VERSION').split('-', 1)[1] if d.getVar('DISTRO_VERSION').find("-") != -1 else "nover"}"
+SDK_NAME_PREFIX = "${@d.getVar('DISTRO').replace('qti-distro-', '')}"
+SDK_NAME = "${SDK_NAME_PREFIX}-${SDKMACHINE}-${IMAGE_BASENAME}-${TUNE_PKGARCH}-${MACHINE}"
+SDKPATH = "/opt/${DISTRO}/${SDK_VERSION}"
+
 # DISTRO FEATURE SELECTION
 MICRO_GOLD ?= "ld-is-gold"
 
@@ -71,7 +78,8 @@ USERADDEXTENSION = "qpermissions"
 #             state and alter call, return sequences etc to change
 #             processor state as necessary.
 # xattr:      Extended attributes(xattr) to filesystem.
-DISTRO_FEATURES += " systemd eabi ipv6 ipv4 largefile thumb-interwork xattr ${DISTRO_FEATURES_LIBC}"
+# selinux:    SELinux support
+DISTRO_FEATURES += " systemd eabi ipv6 ipv4 largefile thumb-interwork xattr ${DISTRO_FEATURES_LIBC} selinux"
 
 ## QTI Defined distro features ##
 # emmc-boot:  Support eMMC device
