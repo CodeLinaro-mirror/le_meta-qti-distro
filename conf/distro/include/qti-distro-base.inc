@@ -14,7 +14,7 @@ DISTROOVERRIDES =. "qti-distro-base:"
 
 # SDK variables.
 SDK_VENDOR = "-qtisdk"
-SDK_VERSION = "${@d.getVar('DISTRO_VERSION').split('-', 1)[1] if d.getVar('DISTRO_VERSION').find("-") != -1 else "nover"}"
+SDK_VERSION = "${@d.getVar('DISTRO_VERSION').split('.')[-1]}"
 SDK_NAME_PREFIX = "${@d.getVar('DISTRO').replace('qti-distro-', '')}"
 SDK_NAME = "${SDK_NAME_PREFIX}-${SDKMACHINE}-${IMAGE_BASENAME}-${TUNE_PKGARCH}-${MACHINE}"
 SDKPATH = "/opt/${DISTRO}/${SDK_VERSION}"
@@ -104,3 +104,5 @@ PATH_prepend = "${QTIBASE}/scripts:"
 # Enable uninative for reuse -native sstate across hosts
 require conf/distro/include/yocto-uninative.inc
 INHERIT += "uninative"
+
+IMAGE_CLASSES += "${@['populate_sdk_base', 'populate_sdk_ext populate_sdk_ext_llvm']['linux' in d.getVar("SDK_OS")]}"
