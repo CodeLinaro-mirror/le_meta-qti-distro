@@ -14,10 +14,8 @@ DISTROOVERRIDES =. "qti-distro-base:"
 
 # SDK variables.
 SDK_VENDOR = "-qtisdk"
-SDK_VERSION = "${@d.getVar('DISTRO_VERSION').split('.')[-1]}"
 SDK_NAME_PREFIX = "${@d.getVar('DISTRO').replace('qti-distro-', '')}"
 SDK_NAME = "${SDK_NAME_PREFIX}-${SDKMACHINE}-${IMAGE_BASENAME}-${TUNE_PKGARCH}-${MACHINE}"
-SDKPATH = "/opt/${DISTRO}/${SDK_VERSION}"
 
 # DISTRO FEATURE SELECTION
 MICRO_GOLD ?= "ld-is-gold"
