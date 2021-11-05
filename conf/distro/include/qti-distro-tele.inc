@@ -1,13 +1,13 @@
 ######################################################################
 # This configuration defines an OE Linux based distribution containing
-# libraries and utilities required for qti external application
-# processor used in fusion systems with qti Modem chipsets.
+# libraries and utilities required for running the complete system on
+# qti Telematics chipsets.
 ######################################################################
 
 # Get basic distro configuration
 require conf/distro/include/qti-distro-base.inc
 
-DISTRO_NAME = "QTI Linux External AP distro."
+DISTRO_NAME = "QTI Linux Telematics distro."
 
 ##################################################################
 # list of distro features
@@ -28,7 +28,7 @@ DISTRO_FEATURES_append = " selinux"
 # qti-vble:      Support QTI Verified boot for LE
 #
 
-DISTRO_FEATURES_append = " qti-security qti-vble"
+DISTRO_FEATURES_append = " qti-adsp qti-security qti-vble"
 
 # Allow checking of required and conflicting features across the distro
 INHERIT += "features_check"
