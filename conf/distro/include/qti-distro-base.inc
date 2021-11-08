@@ -14,10 +14,8 @@ DISTROOVERRIDES =. "qti-distro-base:"
 
 # SDK variables.
 SDK_VENDOR = "-qtisdk"
-SDK_VERSION = "${@d.getVar('DISTRO_VERSION').split('.')[-1]}"
 SDK_NAME_PREFIX = "${@d.getVar('DISTRO').replace('qti-distro-', '')}"
 SDK_NAME = "${SDK_NAME_PREFIX}-${SDKMACHINE}-${IMAGE_BASENAME}-${TUNE_PKGARCH}-${MACHINE}"
-SDKPATH = "/opt/${DISTRO}/${SDK_VERSION}"
 
 # DISTRO FEATURE SELECTION
 MICRO_GOLD ?= "ld-is-gold"
@@ -101,6 +99,12 @@ RM_WORK_EXCLUDE += "make-mod-scripts"
 # include QTI scripts
 PATH_prepend = "${QTIBASE}/scripts:"
 
+# Update parallelism and resource usage parameters for xz
+XZ_THREADS  = "${@oe.utils.less_or_equal('CPU_COUNT', '8', '${CPU_COUNT}', '8', d)}"
+XZ_DEFAULTS = "--memlimit=${XZ_MEMLIMIT} --threads=${XZ_THREADS}"
+
 # Enable uninative for reuse -native sstate across hosts
 require conf/distro/include/yocto-uninative.inc
 INHERIT += "uninative"
+
+IMAGE_CLASSES += "${@['populate_sdk_base', 'populate_sdk_ext populate_sdk_ext_llvm']['linux' in d.getVar("SDK_OS")]}"
