@@ -71,13 +71,12 @@ USERADDEXTENSION = "qpermissions"
 # eabi:       Embedded Application Binary Interface(EABI).
 # ipv4,ipv6:  Basic networking tools - ipv6,ipv4.
 # largefile:  LargeFile support in Linux.
-# systemd:    Use systemd init manager.
 # thumb-interwork: Linker can detect thumb function called from ARM
 #             state and alter call, return sequences etc to change
 #             processor state as necessary.
 # xattr:      Extended attributes(xattr) to filesystem.
 # selinux:    SELinux support
-DISTRO_FEATURES += " systemd eabi ipv6 ipv4 largefile thumb-interwork xattr ${DISTRO_FEATURES_LIBC} selinux"
+DISTRO_FEATURES += " eabi ipv6 ipv4 largefile thumb-interwork xattr ${DISTRO_FEATURES_LIBC} selinux"
 
 ## QTI Defined distro features ##
 # emmc-boot:  Support eMMC device
@@ -85,9 +84,11 @@ DISTRO_FEATURES += " systemd eabi ipv6 ipv4 largefile thumb-interwork xattr ${DI
 # qti-ab-boot:Support QTI a/b boot solution
 DISTRO_FEATURES += " emmc-boot qti-wifi qti-ab-boot"
 
-DISTRO_FEATURES_BACKFILL_CONSIDERED += "sysvinit pulseaudio"
+# Use systemd init manager for system initialization.
+INIT_MANAGER = "systemd"
+
+DISTRO_FEATURES_BACKFILL_CONSIDERED_append = " pulseaudio"
 VIRTUAL-RUNTIME_dev_manager = "udev"
-VIRTUAL-RUNTIME_init_manager = "systemd"
 
 # Change Image features for systemd.
 IMAGE_DEV_MANAGER = "udev"
