@@ -65,6 +65,9 @@ COMMERCIAL_LICENSE_DEPENDEES = ""
 # Add qti custom user permissions
 USERADDEXTENSION = "qpermissions"
 
+# Pull in default qti providers
+include ${COREBASE}/meta-qti-distro/conf/distro/include/qti-default-providers.inc
+
 ##################################################################
 # list of distro features
 ##################################################################
