@@ -40,8 +40,6 @@ DISTRO_FEATURES_FILTER_NATIVE += " selinux "
 # Allow checking of required and conflicting features across the distro
 INHERIT += "features_check"
 
-# Set selinux in Permissive mode
-DEFAULT_ENFORCING = "permissive"
 
 # This is a list of packages that may have license conflicts.
 # Carefully check individual package licences while adding
