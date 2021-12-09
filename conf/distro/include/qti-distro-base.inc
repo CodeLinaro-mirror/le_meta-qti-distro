@@ -65,19 +65,21 @@ COMMERCIAL_LICENSE_DEPENDEES = ""
 # Add qti custom user permissions
 USERADDEXTENSION = "qpermissions"
 
+# Pull in default qti providers
+include ${COREBASE}/meta-qti-distro/conf/distro/include/qti-default-providers.inc
+
 ##################################################################
 # list of distro features
 ##################################################################
 # eabi:       Embedded Application Binary Interface(EABI).
 # ipv4,ipv6:  Basic networking tools - ipv6,ipv4.
 # largefile:  LargeFile support in Linux.
-# systemd:    Use systemd init manager.
 # thumb-interwork: Linker can detect thumb function called from ARM
 #             state and alter call, return sequences etc to change
 #             processor state as necessary.
 # xattr:      Extended attributes(xattr) to filesystem.
 # selinux:    SELinux support
-DISTRO_FEATURES += " systemd eabi ipv6 ipv4 largefile thumb-interwork xattr ${DISTRO_FEATURES_LIBC} selinux"
+DISTRO_FEATURES += " eabi ipv6 ipv4 largefile thumb-interwork xattr ${DISTRO_FEATURES_LIBC} selinux"
 
 ## QTI Defined distro features ##
 # emmc-boot:  Support eMMC device
@@ -85,14 +87,27 @@ DISTRO_FEATURES += " systemd eabi ipv6 ipv4 largefile thumb-interwork xattr ${DI
 # qti-ab-boot:Support QTI a/b boot solution
 DISTRO_FEATURES += " emmc-boot qti-wifi qti-ab-boot"
 
-DISTRO_FEATURES_BACKFILL_CONSIDERED += "sysvinit pulseaudio"
+# Use systemd init manager for system initialization.
+INIT_MANAGER = "systemd"
+DISTRO_FEATURES_BACKFILL_CONSIDERED_append = " pulseaudio"
 VIRTUAL-RUNTIME_dev_manager = "udev"
-VIRTUAL-RUNTIME_init_manager = "systemd"
 
 # Change Image features for systemd.
 IMAGE_DEV_MANAGER = "udev"
 IMAGE_INIT_MANAGER = "systemd"
 IMAGE_INITSCRIPTS = ""
+
+##
+## Below section helps to replace busybox with toybox. Upon uncommenting
+## busybox usage is blacklisted and brings in additional replacement packages.
+## A few VIRTUAL-RUNTIME variables are also set to alternates of busybox.
+##
+# PNBLACKLIST[busybox] = "busybox is not supported by this distro"
+# DISTRO_EXTRA_RDEPENDS += "packagegroup-qti-toybox-addons"
+# PREFERRED_PROVIDER_virtual/base-utils = "toybox"
+# VIRTUAL-RUNTIME_base-utils = "toybox"
+# VIRTUAL-RUNTIME_base-utils-hwclock = "util-linux-hwclock"
+# VIRTUAL-RUNTIME_base-utils-syslog = "rsyslog"
 
 RM_WORK_EXCLUDE += "make-mod-scripts"
 
