@@ -28,7 +28,7 @@ DISTRO_FEATURES_append = " selinux"
 # qti-vble:      Support QTI Verified boot for LE
 #
 
-DISTRO_FEATURES_append = " qti-adsp qti-security qti-vble"
+DISTRO_FEATURES_append = " qti-adsp qti-security qti-vble qti-audio"
 
 # Allow checking of required and conflicting features across the distro
 INHERIT += "features_check"
