@@ -122,4 +122,4 @@ XZ_DEFAULTS = "--memlimit=${XZ_MEMLIMIT} --threads=${XZ_THREADS}"
 require conf/distro/include/yocto-uninative.inc
 INHERIT += "uninative"
 
-IMAGE_CLASSES += "${@['populate_sdk_base', 'populate_sdk_ext populate_sdk_ext_llvm']['linux' in d.getVar("SDK_OS")]}"
+IMAGE_CLASSES += "${@['populate_sdk_base', 'populate_sdk_ext']['linux' in d.getVar("SDK_OS")]}"
