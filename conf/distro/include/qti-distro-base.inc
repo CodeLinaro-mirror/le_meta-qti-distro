@@ -121,5 +121,4 @@ XZ_DEFAULTS = "--memlimit=${XZ_MEMLIMIT} --threads=${XZ_THREADS}"
 # Enable uninative for reuse -native sstate across hosts
 require conf/distro/include/yocto-uninative.inc
 INHERIT += "uninative"
-
-IMAGE_CLASSES += "${@['populate_sdk_base', 'populate_sdk_ext populate_sdk_ext_llvm']['linux' in d.getVar("SDK_OS")]}"
+IMAGE_CLASSES += "${@['populate_sdk_base', 'populate_sdk_ext populate_sdk_ext_post_install']['linux' in d.getVar("SDK_OS")]}"
