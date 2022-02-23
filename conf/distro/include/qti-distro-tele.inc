@@ -38,4 +38,4 @@ INHERIT += "features_check"
 DISTRO_FEATURES_FILTER_NATIVE += " selinux"
 
 # Set selinux in enforcing state by default
-DEFAULT_ENFORCING = "permissive"
+DEFAULT_ENFORCING = "enforcing"
