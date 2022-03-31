@@ -32,9 +32,10 @@ DISTRO_FEATURES_append = " drm fbdev opencl opengl wayland"
 # qti-cdsp:      Support QTI cdsp solution
 # qti-security:      Support QTI security solution
 # qti-slpi, qti-sensors:      Support QTI sensors solution
+# qti-vble:      Support QTI Verified boot for LE
 #
 
-DISTRO_FEATURES_append = " qti-audio-cal qti-audio-encoder qti-bluetooth qti-camera qti-video qti-video-encoder qti-video-decoder qti-adsp qti-cdsp qti-security qti-slpi qti-sensors qti-fastcv secure-playback pulseaudio qti-audio selinux dm-verity "
+DISTRO_FEATURES_append = " qti-audio-cal qti-audio-encoder qti-bluetooth qti-camera qti-video qti-video-encoder qti-video-decoder qti-adsp qti-cdsp qti-security qti-slpi qti-sensors qti-fastcv secure-playback pulseaudio qti-audio selinux dm-verity qti-vble"
 DISTRO_FEATURES_FILTER_NATIVE += " selinux "
 
 # Set selinux in Permissive mode
