@@ -39,3 +39,5 @@ DISTRO_FEATURES_FILTER_NATIVE += " selinux"
 
 # Set selinux in enforcing state by default
 DEFAULT_ENFORCING = "enforcing"
+
+GLIBCVERSION = "2.34%"
