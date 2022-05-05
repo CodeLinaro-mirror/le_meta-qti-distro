@@ -5,7 +5,7 @@ SECTION = "libs"
 
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=3b83ef96387f14655fc854ddc3c6bd57"
-SRC_URI = "git://source.codeaurora.org/quic/le/external/khronosgroup/vulkan-headers.git;branch=khronosvulh/sdk-1.2.162"
+SRC_URI = "${CLO_LE_GIT}/external/khronosgroup/vulkan-headers.git;protocol=https;branch=khronosvulh/sdk-1.2.162"
 SRCREV = "87aaa16d4c8e1ac70f8f04acdcd46eed4bd77209"
 
 S = "${WORKDIR}/git"
