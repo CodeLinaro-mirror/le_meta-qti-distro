@@ -35,4 +35,5 @@ GROUPADD_PARAM_${PN} ?=	" \
 			-g 3010 wakelock; \
 			-g 3013 qwes; \
 			-g 3018 gpio; \
+			-g 3017 cpu; \
 			"

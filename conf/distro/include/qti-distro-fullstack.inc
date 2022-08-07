@@ -26,6 +26,7 @@ DISTRO_NAME = "QTI Linux full refrence stack distro."
 DISTRO_FEATURES_append = " drm dm-verity fbdev opencl opengl pulseaudio selinux pam  tensorflow-lite wayland"
 
 ## QTI defined distro features ##
+# qti-afr-algo:  Support QTI Auto framing algo
 # qti-audio:     Support QTI audio solution
 # qti-bluetooth: Support QTI bluetooth solution
 # qti-camera:    Support QTI camera solution
@@ -39,7 +40,7 @@ DISTRO_FEATURES_append = " drm dm-verity fbdev opencl opengl pulseaudio selinux 
 # qti-vble:      Support QTI Verified boot for LE
 # qwesd:         Support QWES
 
-DISTRO_FEATURES_append = " qti-audio qti-bluetooth qti-camera qti-video qti-video-encoder qti-video-decoder qti-cdsp qti-adsp qti-fastcv qti-qmmf qti-security qti-vble qwesd"
+DISTRO_FEATURES_append = " qti-audio qti-bluetooth qti-camera qti-video qti-video-encoder qti-video-decoder qti-cdsp qti-adsp qti-fastcv qti-qmmf qti-security qti-vble qti-afr-algo qwesd"
 
 # Allow checking of required and conflicting features across the distro
 INHERIT += "features_check"
