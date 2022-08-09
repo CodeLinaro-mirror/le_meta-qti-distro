@@ -37,6 +37,9 @@ DISTRO_FEATURES_append = " drm fbdev opencl opengl wayland"
 
 DISTRO_FEATURES_append = " qti-audio-cal qti-audio-encoder qti-bluetooth qti-camera qti-video qti-video-encoder qti-video-decoder qti-adsp qti-cdsp qti-security qti-slpi qti-sensors qti-fastcv secure-playback pulseaudio qti-audio selinux dm-verity qti-vble"
 
+# Set selinux in Permissive mode
+DEFAULT_ENFORCING = "enforcing"
+
 DISTRO_FEATURES_FILTER_NATIVE += " selinux "
 DISTRO_EXTRA_RDEPENDS += "packagegroup-selinux-minimal"
 PREFERRED_PROVIDER_virtual/refpolicy = "refpolicy-mls-xr"
