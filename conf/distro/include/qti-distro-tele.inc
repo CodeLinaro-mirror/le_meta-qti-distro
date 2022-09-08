@@ -29,7 +29,7 @@ DISTRO_FEATURES_append = " selinux"
 # qti-earlyusb   Support QTI early USB init
 #
 
-DISTRO_FEATURES_append = " qti-adsp qti-security qti-vble qti-audio qti-earlyusb"
+DISTRO_FEATURES_append = " qti-adsp qti-security qti-vble qti-audio qti-earlyusb qti-telux"
 
 # Allow checking of required and conflicting features across the distro
 INHERIT += "features_check"
