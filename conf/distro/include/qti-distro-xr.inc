@@ -18,7 +18,7 @@ DISTRO_NAME = "QTI Linux extended realit distro."
 # opengl:          Include the Open Graphics Library,
 # wayland:         Include the Wayland display server protocol.
 
-DISTRO_FEATURES_append = " drm fbdev opencl opengl wayland"
+DISTRO_FEATURES:append = " drm fbdev opencl opengl wayland"
 
 ## QTI defined distro features ##
 # qti-audio-cal: Support QTI audio calibration solution
@@ -35,7 +35,7 @@ DISTRO_FEATURES_append = " drm fbdev opencl opengl wayland"
 # qti-vble:      Support QTI Verified boot for LE
 #
 
-DISTRO_FEATURES_append = " qti-audio-cal qti-audio-encoder qti-bluetooth qti-camera qti-video qti-video-encoder qti-video-decoder qti-adsp qti-cdsp qti-security qti-slpi qti-sensors qti-fastcv secure-playback pulseaudio qti-audio selinux dm-verity qti-vble"
+DISTRO_FEATURES:append = " qti-audio-cal qti-audio-encoder qti-bluetooth qti-camera qti-video qti-video-encoder qti-video-decoder qti-adsp qti-cdsp qti-security qti-slpi qti-sensors qti-fastcv secure-playback pulseaudio qti-audio selinux dm-verity qti-vble"
 
 DISTRO_FEATURES_FILTER_NATIVE += " selinux "
 DISTRO_EXTRA_RDEPENDS += "packagegroup-selinux-minimal"
@@ -48,7 +48,7 @@ INHERIT += "features_check"
 # This is a list of packages that may have license conflicts.
 # Carefully check individual package licences while adding
 # as part of an image to avoid implications.
-LICENSE_FLAGS_WHITELIST  += " \
+LICENSE_FLAGS_ACCEPTED  += " \
     commercial_ffmpeg \
     commercial_gstreamer1.0-libav \
     commercial_gstreamer1.0-omx \

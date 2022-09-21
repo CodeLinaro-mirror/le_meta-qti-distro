@@ -23,7 +23,7 @@ DISTRO_NAME = "QTI Linux full refrence stack distro."
 # wayland:         Include the Wayland display server protocol.
 # pam:             Include pam which is needed by fscrypt.
 
-DISTRO_FEATURES_append = " drm dm-verity fbdev opencl opengl pulseaudio selinux pam  tensorflow-lite wayland"
+DISTRO_FEATURES:append = " drm dm-verity fbdev opencl opengl pulseaudio selinux pam  tensorflow-lite wayland"
 
 ## QTI defined distro features ##
 # qti-afr-algo:  Support QTI Auto framing algo
@@ -40,7 +40,7 @@ DISTRO_FEATURES_append = " drm dm-verity fbdev opencl opengl pulseaudio selinux 
 # qti-vble:      Support QTI Verified boot for LE
 # qwesd:         Support QWES
 
-DISTRO_FEATURES_append = " qti-audio qti-bluetooth qti-camera qti-video qti-video-encoder qti-video-decoder qti-cdsp qti-adsp qti-fastcv qti-qmmf qti-security qti-vble qti-afr-algo qwesd"
+DISTRO_FEATURES:append = " qti-audio qti-bluetooth qti-camera qti-video qti-video-encoder qti-video-decoder qti-cdsp qti-adsp qti-fastcv qti-qmmf qti-security qti-vble qwesd"
 
 # Allow checking of required and conflicting features across the distro
 INHERIT += "features_check"
@@ -54,7 +54,7 @@ DEFAULT_ENFORCING = "enforcing"
 # This is a list of packages that may have license conflicts.
 # Carefully check individual package licences while adding
 # as part of an image to avoid implications.
-LICENSE_FLAGS_WHITELIST  += " \
+LICENSE_FLAGS_ACCEPTED  += " \
     commercial_ffmpeg \
     commercial_gstreamer1.0-libav \
     commercial_gstreamer1.0-omx \

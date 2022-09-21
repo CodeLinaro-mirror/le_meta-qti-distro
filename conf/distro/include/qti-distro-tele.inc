@@ -17,7 +17,7 @@ DISTRO_NAME = "QTI Linux Telematics distro."
 # selinux:         Use selinux for mandatory access control.
 # openavb:         Include the Open AVB Library
 
-DISTRO_FEATURES_append = " selinux"
+DISTRO_FEATURES:append = " selinux"
 
 ## QTI defined distro features ##
 # qti-audio:     Support QTI audio solution
@@ -29,7 +29,7 @@ DISTRO_FEATURES_append = " selinux"
 # qti-earlyusb   Support QTI early USB init
 #
 
-DISTRO_FEATURES_append = " qti-adsp qti-security qti-vble qti-audio qti-earlyusb"
+DISTRO_FEATURES:append = " qti-adsp qti-security qti-vble qti-audio qti-earlyusb"
 
 # Allow checking of required and conflicting features across the distro
 INHERIT += "features_check"

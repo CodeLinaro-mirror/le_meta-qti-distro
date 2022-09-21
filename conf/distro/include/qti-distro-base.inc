@@ -89,7 +89,7 @@ DISTRO_FEATURES += " emmc-boot qti-wifi qti-ab-boot"
 
 # Use systemd init manager for system initialization.
 INIT_MANAGER = "systemd"
-DISTRO_FEATURES_BACKFILL_CONSIDERED_append = " pulseaudio"
+DISTRO_FEATURES_BACKFILL_CONSIDERED:append = " pulseaudio"
 VIRTUAL-RUNTIME_dev_manager = "udev"
 
 # Change Image features for systemd.
@@ -102,7 +102,7 @@ IMAGE_INITSCRIPTS = ""
 ## busybox usage is blacklisted and brings in additional replacement packages.
 ## A few VIRTUAL-RUNTIME variables are also set to alternates of busybox.
 ##
-# PNBLACKLIST[busybox] = "busybox is not supported by this distro"
+# SKIP_RECIPE[busybox] = "busybox is not supported by this distro"
 # DISTRO_EXTRA_RDEPENDS += "packagegroup-qti-toybox-addons"
 # PREFERRED_PROVIDER_virtual/base-utils = "toybox"
 # VIRTUAL-RUNTIME_base-utils = "toybox"
@@ -112,7 +112,7 @@ IMAGE_INITSCRIPTS = ""
 RM_WORK_EXCLUDE += "make-mod-scripts"
 
 # include QTI scripts
-PATH_prepend = "${QTIBASE}/scripts:"
+PATH:prepend = "${QTIBASE}/scripts:"
 
 # Update parallelism and resource usage parameters for xz
 XZ_THREADS  = "${@oe.utils.less_or_equal('CPU_COUNT', '8', '${CPU_COUNT}', '8', d)}"
