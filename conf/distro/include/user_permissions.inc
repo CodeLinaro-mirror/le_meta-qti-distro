@@ -1,6 +1,6 @@
 USERADD_PACKAGES ?= "${PN}"
 
-USERADD_PARAM_${PN} ?= 	" \
+USERADD_PARAM:${PN} ?= 	" \
 			-u 5002 -U leprop; \
 			-u 1000 -U system; \
 			-u 1001 -U radio; \
@@ -27,7 +27,7 @@ USERADD_PARAM_${PN} ?= 	" \
 			-u 2906 -U qrtr; \
 			"
 
-GROUPADD_PARAM_${PN} ?=	" \
+GROUPADD_PARAM:${PN} ?=	" \
                         -g 2901 kmsg; \
 			-g 3004 net_raw; \
 			-g 3005 net_admin; \
