@@ -87,9 +87,6 @@ DISTRO_FEATURES += " eabi ipv6 ipv4 largefile thumb-interwork xattr ${DISTRO_FEA
 # qti-ab-boot:Support QTI a/b boot solution
 DISTRO_FEATURES += " emmc-boot qti-wifi qti-ab-boot"
 
-# Let selinux be in permissive as this distro is meant for providing basic functionality
-DEFAULT_ENFORCING ?= "permissive"
-
 # Use systemd init manager for system initialization.
 INIT_MANAGER = "systemd"
 DISTRO_FEATURES_BACKFILL_CONSIDERED_append = " pulseaudio"
