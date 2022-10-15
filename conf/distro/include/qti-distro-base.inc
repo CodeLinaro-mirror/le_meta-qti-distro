@@ -108,3 +108,7 @@ require conf/distro/include/yocto-uninative.inc
 INHERIT += "uninative"
 
 IMAGE_CLASSES += "${@['populate_sdk_base', 'populate_sdk_ext populate_sdk_ext_llvm']['linux' in d.getVar("SDK_OS")]}"
+
+#enable fortran in gcc-cross to support ros build in esdk
+FORTRAN_forcevariable = ",fortran"
+RUNTIMETARGET_append_pn-gcc-runtime = " libquadmath"
