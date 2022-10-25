@@ -43,6 +43,6 @@ PACKAGECONFIG[wayland] = "-DBUILD_WSI_WAYLAND_SUPPORT=ON, -DBUILD_WSI_WAYLAND_SU
 UPSTREAM_CHECK_GITTAGREGEX = "sdk-(?P<pver>\d+(\.\d+)+)"
 
 LEAD_SONAME="libvulkan.so"
-FILES_${PN} += "/usr/lib/*.so"
+FILES:${PN} += "/usr/lib/*.so"
 
 CFLAGS += " -Wno-error "
