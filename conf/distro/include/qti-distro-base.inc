@@ -29,6 +29,13 @@ INHERIT += "recipe_sanity"
 PREFERRED_VERSION_autoconf = "2.68"
 ARM_INSTRUCTION_SET       ?= "arm"
 
+#ROOT PASSWD
+INHERIT += "extrausers"
+
+EXTRA_USERS_PARAMS = " \
+            usermod -p '\$1\$b7X30f8f\$au21weqL.9.ExM4N84AtA0' root; \
+            "
+
 ######################################################################
 # Optimization flags.
 ######################################################################
