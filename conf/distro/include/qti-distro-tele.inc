@@ -19,9 +19,6 @@ DISTRO_NAME = "QTI Linux Telematics distro."
 
 DISTRO_FEATURES_append = " selinux"
 
-# Enable system-integrity through IMA
-DISTRO_FEATURES_NATIVE_append = " vbleima"
-
 ## QTI defined distro features ##
 # qti-audio:     Support QTI audio solution
 # qti-bluetooth: Support QTI bluetooth solution
@@ -41,6 +38,9 @@ INHERIT += "features_check"
 
 # Include in native DISTRO_FEATURES if present in the target DISTRO_FEATURES.
 DISTRO_FEATURES_FILTER_NATIVE += " selinux"
+
+# Enable system-integrity through IMA
+DISTRO_FEATURES_NATIVE_append  = " ${@bb.utils.contains_any('MACHINE', 'sa515m', 'vbleima', '', d)} "
 
 # Set selinux in enforcing state by default
 DEFAULT_ENFORCING = "enforcing"
