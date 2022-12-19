@@ -23,6 +23,7 @@ USERADD_PARAM_${PN} ?= 	" \
 			-G system,locclient -u 1021 -U gps; \
 			-G system,diag,radio -u 4023 -U mcm; \
 			-u 3014 -U powermgr; \
+			-u 3015 -U ubi; \
 			-u 2906 -U qrtr; \
 			"
 
@@ -34,4 +35,5 @@ GROUPADD_PARAM_${PN} ?=	" \
 			-g 3010 wakelock; \
 			-g 3013 qwes; \
 			-g 3018 gpio; \
+			-g 3017 cpu; \
 			"

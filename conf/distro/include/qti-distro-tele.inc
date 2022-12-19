@@ -26,9 +26,10 @@ DISTRO_FEATURES_append = " selinux"
 # qti-adsp:      Support QTI adsp solution
 # qti-security:  Support QTI security solution
 # qti-vble:      Support QTI Verified boot for LE
+# qti-earlyusb   Support QTI early USB init
 #
 
-DISTRO_FEATURES_append = " qti-adsp qti-security qti-vble"
+DISTRO_FEATURES_append = " qti-adsp qti-security qti-vble qti-audio qti-earlyusb qti-telux qti-mvm qti-avb qti-early-eth"
 
 # Allow checking of required and conflicting features across the distro
 INHERIT += "features_check"
@@ -37,4 +38,8 @@ INHERIT += "features_check"
 DISTRO_FEATURES_FILTER_NATIVE += " selinux"
 
 # Set selinux in enforcing state by default
-DEFAULT_ENFORCING = "permissive"
+DEFAULT_ENFORCING = "enforcing"
+
+GLIBCVERSION = "2.34%"
+
+PREFERRED_VERSION_chrony = "3.5"
