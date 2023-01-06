@@ -129,3 +129,14 @@ XZ_DEFAULTS = "--memlimit=${XZ_MEMLIMIT} --threads=${XZ_THREADS}"
 require conf/distro/include/yocto-uninative.inc
 INHERIT += "uninative"
 IMAGE_CLASSES += "${@['populate_sdk_base', 'populate_sdk_ext populate_sdk_ext_post_install']['linux' in d.getVar("SDK_OS")]}"
+
+# This is a list of packages that may have license conflicts.
+# Carefully check individual package licences while adding
+# as part of an image to avoid implications.
+LICENSE_FLAGS_ACCEPTED  += " \
+    commercial_ffmpeg \
+    commercial_gstreamer1.0-libav \
+    commercial_gstreamer1.0-omx \
+    commercial_gstreamer1.0-plugins-ugly \
+"
+DISTRO_FEATURES += " qti-camera qti-qmmf qti-video qti-ib2c wayland"
