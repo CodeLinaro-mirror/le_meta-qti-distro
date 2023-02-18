@@ -15,12 +15,8 @@ DISTRO_NAME = "QTI Linux Telematics distro."
 #
 # dm-verity:       Support block integrity check on system image
 # selinux:         Use selinux for mandatory access control.
-# openavb:         Include the Open AVB Library
 
 DISTRO_FEATURES_append = " selinux"
-
-# Enable system-integrity through IMA
-DISTRO_FEATURES_NATIVE_append = " vbleima"
 
 ## QTI defined distro features ##
 # qti-audio:     Support QTI audio solution
@@ -34,7 +30,7 @@ DISTRO_FEATURES_NATIVE_append = " vbleima"
 # vbleevm        Support system-integrity through EVM
 #
 
-DISTRO_FEATURES_append = " qti-adsp qti-security qti-vble qti-audio qti-earlyusb qti-telux qti-mvm qti-avb qti-early-eth vbleima vbleevm"
+DISTRO_FEATURES_append = " qti-adsp qti-security qti-vble qti-audio qti-earlyusb qti-telux qti-mvm qti-early-eth vbleima vbleevm"
 
 # Allow checking of required and conflicting features across the distro
 INHERIT += "features_check"
@@ -42,8 +38,11 @@ INHERIT += "features_check"
 # Include in native DISTRO_FEATURES if present in the target DISTRO_FEATURES.
 DISTRO_FEATURES_FILTER_NATIVE += " selinux"
 
+# Enable system-integrity through IMA
+DISTRO_FEATURES_NATIVE_append  = " ${@bb.utils.contains_any('MACHINE', 'sa515m', 'vbleima', '', d)} "
+
 # Set selinux in enforcing state by default
-DEFAULT_ENFORCING = "enforcing"
+DEFAULT_ENFORCING ?= "enforcing"
 
 GLIBCVERSION = "2.34%"
 
