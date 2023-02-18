@@ -42,7 +42,7 @@ DISTRO_FEATURES_FILTER_NATIVE += " selinux"
 DISTRO_FEATURES_NATIVE_append  = " ${@bb.utils.contains_any('MACHINE', 'sa515m', 'vbleima', '', d)} "
 
 # Set selinux in enforcing state by default
-DEFAULT_ENFORCING = "enforcing"
+DEFAULT_ENFORCING ?= "enforcing"
 
 GLIBCVERSION = "2.34%"
 
