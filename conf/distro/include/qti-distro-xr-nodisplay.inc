@@ -1,24 +1,18 @@
 ######################################################################
 # This configuration defines an OE Linux based distribution containing
-# reference stack for running extended reality on qti chipsets.
+# reference stack for running extended reality usecases without display
+# support on qti chipsets.
 ######################################################################
 
 # Get basic distro configuration
 require conf/distro/include/qti-distro-base.inc
 
-DISTRO_NAME = "QTI Linux extended reality distro."
+DISTRO_NAME = "QTI Linux extended reality distro with out display."
 
 ##################################################################
 # list of distro features
 ##################################################################
 #
-# drm:             Use DRM display drivers, provided machine supports it.
-# fbdev:           Use FBDEV display drivers, provided machine supports it.
-# opencl:          Include the Open Computing Language
-# opengl:          Include the Open Graphics Library,
-# wayland:         Include the Wayland display server protocol.
-
-DISTRO_FEATURES_append = " drm fbdev opencl opengl wayland"
 
 ## QTI defined distro features ##
 # qti-audio-cal: Support QTI audio calibration solution
