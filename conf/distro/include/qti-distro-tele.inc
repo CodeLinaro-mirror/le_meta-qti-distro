@@ -15,7 +15,6 @@ DISTRO_NAME = "QTI Linux Telematics distro."
 #
 # dm-verity:       Support block integrity check on system image
 # selinux:         Use selinux for mandatory access control.
-# openavb:         Include the Open AVB Library
 
 DISTRO_FEATURES_append = " selinux"
 
@@ -31,7 +30,7 @@ DISTRO_FEATURES_append = " selinux"
 # vbleevm        Support system-integrity through EVM
 #
 
-DISTRO_FEATURES_append = " qti-adsp qti-security qti-vble qti-audio qti-earlyusb qti-telux qti-mvm qti-avb qti-early-eth vbleima vbleevm"
+DISTRO_FEATURES_append = " qti-adsp qti-security qti-vble qti-audio qti-earlyusb qti-telux qti-mvm qti-early-eth vbleima vbleevm"
 
 # Allow checking of required and conflicting features across the distro
 INHERIT += "features_check"
@@ -43,7 +42,7 @@ DISTRO_FEATURES_FILTER_NATIVE += " selinux"
 DISTRO_FEATURES_NATIVE_append  = " ${@bb.utils.contains_any('MACHINE', 'sa515m', 'vbleima', '', d)} "
 
 # Set selinux in enforcing state by default
-DEFAULT_ENFORCING = "enforcing"
+DEFAULT_ENFORCING ?= "enforcing"
 
 GLIBCVERSION = "2.34%"
 

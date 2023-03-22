@@ -17,3 +17,8 @@ PREFERRED_PROVIDER_virtual/dtc-native ?= "dtc-native"
 #
 # Default recipe providers
 #
+
+#
+# Default versions
+#
+PREFERRED_VERSION_mod-signing-keys ?= "1.0"
