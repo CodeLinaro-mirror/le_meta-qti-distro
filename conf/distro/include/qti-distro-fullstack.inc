@@ -40,8 +40,9 @@ DISTRO_FEATURES_append = " drm dm-verity fbdev opencl opengl pulseaudio selinux 
 # qti-vble:            Support QTI Verified boot for LE
 # qwesd:               Support QWES
 # qti-camera-metadata: Support Camera Metadata via camera-metadata
+# qti-uvc:       Support QTI UVC solution
 
-DISTRO_FEATURES_append = " qti-audio qti-bluetooth qti-camera qti-video qti-video-encoder qti-video-decoder qti-cdsp qti-adsp qti-fastcv qti-qmmf qti-security qti-vble qti-afr-algo qwesd qti-camera-metadata"
+DISTRO_FEATURES_append = " qti-audio qti-bluetooth qti-camera qti-video qti-video-encoder qti-video-decoder qti-cdsp qti-adsp qti-fastcv qti-qmmf qti-security qti-vble qti-afr-algo qwesd qti-camera-metadata qti-uvc"
 
 # Allow checking of required and conflicting features across the distro
 INHERIT += "features_check"
