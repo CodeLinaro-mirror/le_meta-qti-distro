@@ -49,7 +49,8 @@ INHERIT += "features_check"
 DISTRO_FEATURES_FILTER_NATIVE += " selinux"
 
 # Set selinux in enforcing state by default
-DEFAULT_ENFORCING = "enforcing"
+#DEFAULT_ENFORCING = "enforcing"
+DEFAULT_ENFORCING = "permissive"
 
 # This is a list of packages that may have license conflicts.
 # Carefully check individual package licences while adding
