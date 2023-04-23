@@ -10,9 +10,13 @@ SECTION = "libs"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=7dbefed23242760aa3475ee42801c5ac"
 
+## This patch is required only for targets which support WSI
+WSI_SRC_URI = "file://0001-Add-VkSharedPresentSurfaceCapabilitiesKHR_to_vkGetPhysicalDeviceSurfaceCapabilities2KHR.patch;patch=1"
+
 SRC_URI = "${CLO_LE_GIT}/external/khronosgroup/vulkan-loader.git;protocol=https;branch=caf_migration/khronosvull/sdk-1.2.162 \
-          file://0001-Add-VkSharedPresentSurfaceCapabilitiesKHR_to_vkGetPhysicalDeviceSurfaceCapabilities2KHR.patch;patch=1 \
+           ${@bb.utils.contains('DISTRO_FEATURES', 'qti-no-wsi-linux', '', '${WSI_SRC_URI}', d)} \
           "
+
 SRC_URI[sha256sum] = "516aaa79fba7f648e042e0614b5fae5fbcb83d3b9bdd912110a2e41c0ea9ad17"
 SRCREV = "767dfe935f13344313cbbbeb18e3f1fe6e23761a"
 S = "${WORKDIR}/git"
