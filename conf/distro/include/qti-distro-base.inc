@@ -85,7 +85,8 @@ DISTRO_FEATURES += " eabi ipv6 ipv4 largefile thumb-interwork xattr selinux"
 # emmc-boot:  Support eMMC device
 # qti-wifi:   Support QTI WiFi solution
 # qti-ab-boot:Support QTI a/b boot solution
-DISTRO_FEATURES += " emmc-boot qti-wifi qti-ab-boot"
+# qti-recoveryinfo:Support QTI a/b boot with recoveryinfo partition solution
+DISTRO_FEATURES += " emmc-boot qti-wifi qti-ab-boot qti-recoveryinfo"
 
 # Use systemd init manager for system initialization.
 INIT_MANAGER = "systemd"
