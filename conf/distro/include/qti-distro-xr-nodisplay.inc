@@ -15,8 +15,6 @@ DISTRO_NAME = "QTI Linux extended reality distro with out display."
 #
 
 ## QTI defined distro features ##
-# qti-audio-cal: Support QTI audio calibration solution
-# qti-audio-encoder: Support QRI audio encoder
 # qti-bluetooth: Support QTI bluetooth solution
 # qti-camera:    Support QTI camera solution
 # qti-video:     Support QTI video solution
@@ -29,7 +27,7 @@ DISTRO_NAME = "QTI Linux extended reality distro with out display."
 # qti-vble:      Support QTI Verified boot for LE
 #
 
-DISTRO_FEATURES_append = " qti-audio-cal qti-audio-encoder qti-bluetooth qti-camera qti-video qti-video-encoder qti-video-decoder qti-adsp qti-cdsp qti-security qti-slpi qti-sensors qti-fastcv secure-playback pulseaudio qti-audio selinux dm-verity qti-vble"
+DISTRO_FEATURES_append = " qti-camera qti-video qti-video-encoder qti-video-decoder qti-adsp qti-cdsp qti-security qti-slpi qti-sensors qti-fastcv secure-playback selinux dm-verity qti-vble"
 
 DISTRO_FEATURES_FILTER_NATIVE += " selinux "
 DISTRO_EXTRA_RDEPENDS += "packagegroup-selinux-minimal"
