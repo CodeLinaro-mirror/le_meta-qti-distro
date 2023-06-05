@@ -79,13 +79,14 @@ include ${COREBASE}/meta-qti-distro/conf/distro/include/qti-default-providers.in
 #             processor state as necessary.
 # xattr:      Extended attributes(xattr) to filesystem.
 # selinux:    SELinux support
-DISTRO_FEATURES += " eabi ipv6 ipv4 largefile thumb-interwork xattr ${DISTRO_FEATURES_LIBC} selinux"
+DISTRO_FEATURES += " eabi ipv6 ipv4 largefile thumb-interwork xattr selinux"
 
 ## QTI Defined distro features ##
 # emmc-boot:  Support eMMC device
 # qti-wifi:   Support QTI WiFi solution
 # qti-ab-boot:Support QTI a/b boot solution
-DISTRO_FEATURES += " emmc-boot qti-wifi qti-ab-boot"
+# qti-recoveryinfo:Support QTI a/b boot with recoveryinfo partition solution
+DISTRO_FEATURES += " emmc-boot qti-wifi qti-ab-boot qti-recoveryinfo"
 
 # Use systemd init manager for system initialization.
 INIT_MANAGER = "systemd"
