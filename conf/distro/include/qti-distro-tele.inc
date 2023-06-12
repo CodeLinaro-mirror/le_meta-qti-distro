@@ -30,7 +30,7 @@ DISTRO_FEATURES_append = " selinux"
 # vbleevm        Support system-integrity through EVM
 #
 
-DISTRO_FEATURES_append = " qti-adsp qti-security qti-vble qti-audio qti-earlyusb qti-telux qti-mvm qti-early-eth vbleima vbleevm"
+DISTRO_FEATURES_append = " qti-adsp qti-security qti-vble qti-audio qti-earlyusb qti-telux qti-mvm qti-early-eth vbleima vbleevm qti-nad-core"
 
 # Allow checking of required and conflicting features across the distro
 INHERIT += "features_check"
