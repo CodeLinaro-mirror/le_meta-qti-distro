@@ -16,7 +16,7 @@ DISTRO_NAME = "QTI Linux Telematics distro."
 # dm-verity:       Support block integrity check on system image
 # selinux:         Use selinux for mandatory access control.
 
-DISTRO_FEATURES_append = " selinux"
+DISTRO_FEATURES_append = " selinux dm-verity"
 
 ## QTI defined distro features ##
 # qti-audio:     Support QTI audio solution
@@ -28,9 +28,10 @@ DISTRO_FEATURES_append = " selinux"
 # qti-earlyusb   Support QTI early USB init
 # vbleima        Support system-integrity through IMA
 # vbleevm        Support system-integrity through EVM
+# qti-nad-telaf: Support telematics application framework
 #
 
-DISTRO_FEATURES_append = " qti-adsp qti-security qti-vble qti-audio qti-earlyusb qti-telux qti-mvm qti-early-eth vbleima vbleevm"
+DISTRO_FEATURES_append = " qti-adsp qti-security qti-vble qti-audio qti-earlyusb qti-telux qti-mvm qti-early-eth vbleima vbleevm qti-nad-core qti-nad-telaf"
 
 # Allow checking of required and conflicting features across the distro
 INHERIT += "features_check"
