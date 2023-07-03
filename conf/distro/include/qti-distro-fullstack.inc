@@ -23,7 +23,7 @@ DISTRO_NAME = "QTI Linux full refrence stack distro."
 # wayland:         Include the Wayland display server protocol.
 # pam:             Include pam which is needed by fscrypt.
 
-DISTRO_FEATURES:append = " drm dm-verity fbdev opencl opengl pulseaudio selinux pam  tensorflow-lite wayland"
+DISTRO_FEATURES:append = " drm dm-verity fbdev opencl opengl pulseaudio selinux pam wayland"
 
 ## QTI defined distro features ##
 # qti-afr-algo:  Support QTI Auto framing algo
