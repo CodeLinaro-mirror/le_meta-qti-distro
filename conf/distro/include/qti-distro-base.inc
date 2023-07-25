@@ -126,6 +126,19 @@ XZ_THREADS  = "${@oe.utils.less_or_equal('CPU_COUNT', '8', '${CPU_COUNT}', '8', 
 XZ_DEFAULTS = "--memlimit=${XZ_MEMLIMIT} --threads=${XZ_THREADS}"
 
 # Enable uninative for reuse -native sstate across hosts
-require conf/distro/include/yocto-uninative.inc
+# This version is aligned to gcc 11.3. When updating, do
+# ensure both uninative and gcc versions go hand in hand.
+UNINATIVE_MAXGLIBCVERSION = "2.37"
+UNINATIVE_VERSION = "3.9"
+
+UNINATIVE_URL = "http://downloads.yoctoproject.org/releases/uninative/${UNINATIVE_VERSION}/"
+UNINATIVE_CHECKSUM[aarch64] = "de35708c95c34573af140da910132c3291ba4fd26ebf7b74b755ada432cdf07b"
+UNINATIVE_CHECKSUM[i686] = "adac07b08adb88eb26fc7fd87fee0cec9d5be167bf7c5ffd3a549a2a6699c29c"
+UNINATIVE_CHECKSUM[x86_64] = "3dd82c3fbdb59e87bf091c3eef555a05fae528eeda3083828f76cd4deaceca8b"
+
 INHERIT += "uninative"
+
+# GCC Version
+GCCVERSION = "11.3%"
+
 IMAGE_CLASSES += "${@['populate_sdk_base', 'populate_sdk_ext populate_sdk_ext_post_install']['linux' in d.getVar("SDK_OS")]}"
