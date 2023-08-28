@@ -6,6 +6,9 @@
 # Get basic distro configuration
 require conf/distro/include/qti-distro-base.inc
 
+#Get rdkb specific configuration
+require ${@bb.utils.contains("BBFILE_COLLECTIONS", "qti-rdkb", "conf/machine/include/rdkb-distro.inc", "", d)}
+
 DISTRO_NAME = "QTI Linux nogplv3 distro."
 
 # Allow checking of required and conflicting features across the distro
@@ -16,7 +19,7 @@ INCOMPATIBLE_LICENSE += "GPL-3.0 LGPL-3.0 AGPL-3.0"
 
 # Except recipes part of ALLOWED_GPLV2_RECIPES mask all other recipes
 # from meta-gplv2 to avoid misuse
-ALLOWED_GPLV2_RECIPES ?= "bash|elfutils|gettext|gdbm|m4|readline|coreutils"
+ALLOWED_GPLV2_RECIPES ?= "${@bb.utils.contains('BBFILE_COLLECTIONS', 'qti-rdkb', 'bash|elfutils|gettext|gdbm|m4|readline|coreutils|dosfstools|gawk', 'bash|elfutils|gettext|gdbm|m4|readline|coreutils', d)}"
 BBMASK += "meta-gplv2/recipes-.*/((?!${ALLOWED_GPLV2_RECIPES}).)*/"
 
 DISTRO_FEATURES_remove = " emmc-boot qti-ab-boot"
