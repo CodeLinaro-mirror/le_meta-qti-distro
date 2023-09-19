@@ -22,9 +22,9 @@ INCOMPATIBLE_LICENSE += "GPL-3.0 LGPL-3.0 AGPL-3.0"
 ALLOWED_GPLV2_RECIPES ?= "${@bb.utils.contains('BBFILE_COLLECTIONS', 'qti-rdkb', 'bash|elfutils|gettext|gdbm|m4|readline|coreutils|dosfstools|gawk', 'bash|elfutils|gettext|gdbm|m4|readline|coreutils', d)}"
 BBMASK += "meta-gplv2/recipes-.*/((?!${ALLOWED_GPLV2_RECIPES}).)*/"
 
-DISTRO_FEATURES_remove = " emmc-boot qti-ab-boot"
+DISTRO_FEATURES_remove = " emmc-boot"
 
-DISTRO_FEATURES_append = " selinux nand-boot qti-vble"
+DISTRO_FEATURES_append = " selinux nand-boot qti-vble qti-ab-boot qti-recoveryinfo"
 DISTRO_FEATURES_FILTER_NATIVE += " selinux"
 
 # This is a list of packages that may have license conflicts.
