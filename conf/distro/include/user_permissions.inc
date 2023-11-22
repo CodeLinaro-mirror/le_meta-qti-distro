@@ -25,6 +25,7 @@ USERADD_PARAM_${PN} ?= 	" \
 			-u 3014 -U powermgr; \
 			-u 3015 -U ubi; \
 			-u 2906 -U qrtr; \
+			-u 3019 -U mvm; \
 			"
 
 GROUPADD_PARAM_${PN} ?=	" \
