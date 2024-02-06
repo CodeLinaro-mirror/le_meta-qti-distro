@@ -25,6 +25,7 @@ USERADD_PARAM:${PN} ?= 	" \
 			-u 3014 -U powermgr; \
 			-u 3015 -U ubi; \
 			-u 2906 -U qrtr; \
+			-G audio,system -u 2964 -U pulse; \
 			"
 
 GROUPADD_PARAM:${PN} ?=	" \
