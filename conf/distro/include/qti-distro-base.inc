@@ -128,13 +128,13 @@ XZ_DEFAULTS = "--memlimit=${XZ_MEMLIMIT} --threads=${XZ_THREADS}"
 # Enable uninative for reuse -native sstate across hosts
 # This version is aligned to gcc 11.3. When updating, do
 # ensure both uninative and gcc versions go hand in hand.
-UNINATIVE_MAXGLIBCVERSION = "2.37"
-UNINATIVE_VERSION = "3.9"
+UNINATIVE_MAXGLIBCVERSION = "2.38"
+UNINATIVE_VERSION = "4.3"
 
 UNINATIVE_URL = "http://downloads.yoctoproject.org/releases/uninative/${UNINATIVE_VERSION}/"
-UNINATIVE_CHECKSUM[aarch64] = "de35708c95c34573af140da910132c3291ba4fd26ebf7b74b755ada432cdf07b"
-UNINATIVE_CHECKSUM[i686] = "adac07b08adb88eb26fc7fd87fee0cec9d5be167bf7c5ffd3a549a2a6699c29c"
-UNINATIVE_CHECKSUM[x86_64] = "3dd82c3fbdb59e87bf091c3eef555a05fae528eeda3083828f76cd4deaceca8b"
+UNINATIVE_CHECKSUM[aarch64] = "8df05f4a41455018b4303b2e0ea4eac5c960b5a13713f6dbb33dfdb3e32753ec"
+UNINATIVE_CHECKSUM[i686] = "bea76b4a97c9ba0077c0dd1295f519cd599dbf71f0ca1c964471c4cdb043addd"
+UNINATIVE_CHECKSUM[x86_64] = "1c35f09a75c4096749bbe1e009df4e3968cde151424062cf4aa3ed89db22b030"
 
 INHERIT += "uninative"
 
