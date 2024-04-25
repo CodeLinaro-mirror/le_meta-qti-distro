@@ -31,7 +31,7 @@ DISTRO_FEATURES_append = " selinux dm-verity"
 # qti-nad-telaf: Support telematics application framework
 #
 
-DISTRO_FEATURES_append = " qti-adsp qti-security qti-vble qti-audio qti-earlyusb qti-telux qti-mvm qti-early-eth vbleima vbleevm qti-nad-core qti-nad-telaf"
+DISTRO_FEATURES_append = " qti-adsp qti-security qti-audio qti-earlyusb qti-telux qti-mvm qti-early-eth vbleima vbleevm qti-nad-core qti-nad-telaf"
 
 # Allow checking of required and conflicting features across the distro
 INHERIT += "features_check"
