@@ -18,7 +18,7 @@ DISTRO_NAME = "QTI Linux extended realit distro."
 # opengl:          Include the Open Graphics Library,
 # wayland:         Include the Wayland display server protocol.
 
-DISTRO_FEATURES:append = " drm fbdev opencl opengl wayland"
+DISTRO_FEATURES:append = " pam drm fbdev opencl opengl wayland"
 
 ## QTI defined distro features ##
 # qti-audio-cal: Support QTI audio calibration solution
