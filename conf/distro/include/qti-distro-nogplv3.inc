@@ -9,7 +9,7 @@ require conf/distro/include/qti-distro-base.inc
 DISTRO_NAME = "QTI Linux nogplv3 distro."
 
 # Allow checking of required and conflicting features across the distro
-INHERIT += "features_check"
+IMAGE_CLASSES += "features_check"
 
 # Add Incompatible license details
 INCOMPATIBLE_LICENSE += "GPL-3.0 LGPL-3.0 AGPL-3.0"
