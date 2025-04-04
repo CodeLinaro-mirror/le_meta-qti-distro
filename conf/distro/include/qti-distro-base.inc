@@ -139,6 +139,6 @@ UNINATIVE_CHECKSUM[x86_64] = "1c35f09a75c4096749bbe1e009df4e3968cde151424062cf4a
 INHERIT += "uninative"
 
 # GCC Version
-GCCVERSION = "11.5%"
+GCCVERSION = "13.3%"
 
 IMAGE_CLASSES += "${@['populate_sdk_base', 'populate_sdk_ext populate_sdk_ext_post_install']['linux' in d.getVar("SDK_OS")]}"
