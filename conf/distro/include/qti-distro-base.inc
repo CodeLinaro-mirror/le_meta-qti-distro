@@ -143,5 +143,3 @@ GCCVERSION ?= "13.3%"
 
 IMAGE_CLASSES += "${@['populate_sdk_base', 'populate_sdk_ext populate_sdk_ext_post_install']['linux' in d.getVar("SDK_OS")]}"
 
-BUILD_CFLAGS:append = " -Wno-error=incompatible-pointer-types"
-BUILD_CFLAGS:append = " -Wno-error=implicit-function-declaration"
