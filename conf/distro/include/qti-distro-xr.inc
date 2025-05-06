@@ -41,7 +41,7 @@ DISTRO_FEATURES:append = " qti-audio-cal qti-audio-encoder qti-bluetooth qti-cam
 #Use - DISTRO_FEATURES:remove = 'selinux'
 DISTRO_FEATURES_FILTER_NATIVE:append = " ${@bb.utils.contains('DISTRO_FEATURES', 'selinux', ' selinux', '', d)}"
 DISTRO_EXTRA_RDEPENDS:append = " ${@bb.utils.contains('DISTRO_FEATURES', 'selinux', ' packagegroup-selinux-minimal', '', d)}"
-PREFERRED_PROVIDER_virtual/refpolicy = " ${@bb.utils.contains('DISTRO_FEATURES', 'selinux', ' refpolicy-mls-xr', '', d)}"
+PREFERRED_PROVIDER_virtual/refpolicy = "${@bb.utils.contains('DISTRO_FEATURES', 'selinux', 'refpolicy-mls-xr', '', d)}"
 
 
 #To remove dm-verity from distro, when dm-verity-none.
