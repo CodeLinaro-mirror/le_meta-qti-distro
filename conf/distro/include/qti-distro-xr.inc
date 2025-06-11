@@ -49,12 +49,6 @@ PREFERRED_PROVIDER_virtual/refpolicy = "${@bb.utils.contains('DISTRO_FEATURES', 
 #Use - MACHINE_FEATURES += " dm-verity-none"
 DISTRO_FEATURES:remove = "${@bb.utils.contains('MACHINE_FEATURES', 'dm-verity-none', 'dm-verity', '', d)}"
 
-
-
-# Allow checking of required and conflicting features across the distro
-INHERIT += "features_check"
-
-
 # This is a list of packages that may have license conflicts.
 # Carefully check individual package licences while adding
 # as part of an image to avoid implications.
