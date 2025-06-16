@@ -37,13 +37,17 @@ DISTRO_FEATURES:append = " pam drm fbdev opencl opengl wayland"
 
 DISTRO_FEATURES:append = " qti-audio-cal qti-audio-encoder qti-bluetooth qti-camera qti-video qti-video-encoder qti-video-decoder qti-adsp qti-cdsp qti-security qti-slpi qti-sensors qti-fastcv secure-playback pulseaudio qti-audio selinux dm-verity qti-vble"
 
-DISTRO_FEATURES_FILTER_NATIVE += " selinux "
-DISTRO_EXTRA_RDEPENDS += "packagegroup-selinux-minimal"
-PREFERRED_PROVIDER_virtual/refpolicy = "refpolicy-mls-xr"
+#To Disbale SELINUX
+#Use - DISTRO_FEATURES:remove = 'selinux'
+DISTRO_FEATURES_FILTER_NATIVE:append = " ${@bb.utils.contains('DISTRO_FEATURES', 'selinux', ' selinux', '', d)}"
+DISTRO_EXTRA_RDEPENDS:append = " ${@bb.utils.contains('DISTRO_FEATURES', 'selinux', ' packagegroup-selinux-minimal', '', d)}"
+PREFERRED_PROVIDER_virtual/refpolicy = "${@bb.utils.contains('DISTRO_FEATURES', 'selinux', 'refpolicy-mls-xr', '', d)}"
 
-# Allow checking of required and conflicting features across the distro
-INHERIT += "features_check"
 
+#To remove dm-verity from distro, when dm-verity-none.
+#Use - MACHINE_FEATURES:remove = "dm-verity-initramfs-v2"
+#Use - MACHINE_FEATURES += " dm-verity-none"
+DISTRO_FEATURES:remove = "${@bb.utils.contains('MACHINE_FEATURES', 'dm-verity-none', 'dm-verity', '', d)}"
 
 # This is a list of packages that may have license conflicts.
 # Carefully check individual package licences while adding
