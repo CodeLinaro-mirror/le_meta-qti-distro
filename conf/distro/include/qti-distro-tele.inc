@@ -31,7 +31,7 @@ DISTRO_FEATURES_append = " selinux"
 # qti-nad-telaf: Support telematics application framework
 #
 
-DISTRO_FEATURES_append = " qti-adsp qti-security qti-vble qti-audio qti-telux"
+DISTRO_FEATURES_append = " qti-adsp qti-security qti-audio qti-telux"
 
 # Allow checking of required and conflicting features across the distro
 INHERIT += "features_check"
