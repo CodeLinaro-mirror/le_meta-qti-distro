@@ -57,7 +57,11 @@ DEFAULT_ENFORCING ?= "enforcing"
 # as part of an image to avoid implications.
 LICENSE_FLAGS_ACCEPTED  += " \
     commercial_ffmpeg \
+    commercial_lib32-ffmpeg \
     commercial_gstreamer1.0-libav \
+    commercial_lib32-gstreamer1.0-libav \
     commercial_gstreamer1.0-omx \
+    commercial_lib32-gstreamer1.0-omx \
     commercial_gstreamer1.0-plugins-ugly \
+    commercial_lib32-gstreamer1.0-plugins-ugly \
 "
