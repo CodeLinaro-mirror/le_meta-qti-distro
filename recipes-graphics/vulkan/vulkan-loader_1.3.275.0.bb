@@ -9,40 +9,37 @@ SECTION = "libs"
 
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=7dbefed23242760aa3475ee42801c5ac"
+SRC_URI = "${CLO_LE_GIT}/external/khronosgroup/vulkan-loader.git;protocol=https;branch=khronosvull/vulkan-sdk-1.3.275"
+SRCREV = "00893b9a03e526aec2c5bf487521d16dfa435229"
 
-SRC_URI = "${CLO_LE_GIT}/external/khronosgroup/vulkan-loader.git;protocol=https;branch=caf_migration/khronosvull/sdk-1.2.162 \
-          file://0001-Add-VkSharedPresentSurfaceCapabilitiesKHR_to_vkGetPhysicalDeviceSurfaceCapabilities2KHR.patch;patch=1 \
-          "
-SRC_URI[sha256sum] = "516aaa79fba7f648e042e0614b5fae5fbcb83d3b9bdd912110a2e41c0ea9ad17"
-SRCREV = "767dfe935f13344313cbbbeb18e3f1fe6e23761a"
 S = "${WORKDIR}/git"
 
-inherit cmake features_check
-
+# REQUIRED_DISTRO_FEATURES = "vulkan"
 ## only selecting wayland configuration and not x11
 ANY_OF_DISTRO_FEATURES = "wayland"
 
-## it depends on vulkan headers project
+inherit cmake features_check pkgconfig
+
 DEPENDS += "vulkan-headers"
 
 EXTRA_OECMAKE = "\
                  -DBUILD_TESTS=OFF \
                  -DPYTHON_EXECUTABLE=${HOSTTOOLS_DIR}/python3 \
                  -DASSEMBLER_WORKS=FALSE \
+                 -DVulkanHeaders_INCLUDE_DIR=${STAGING_INCDIR} \
+                 -DVulkanRegistry_DIR=${RECIPE_SYSROOT}/${datadir} \
                  "
 
-# must choose x11 or wayland or both
-# Need only wayland backend support only.
-PACKAGECONFIG ??= "${@bb.utils.filter('DISTRO_FEATURES', 'wayland', d)}"
+PACKAGECONFIG ??= "${@bb.utils.filter('DISTRO_FEATURES', 'wayland x11', d)}"
 
-# configured x11 package to disable building. and kept only wayland support build
-PACKAGECONFIG[x11] = "-DBUILD_WSI_XLIB_SUPPORT=OFF -DBUILD_WSI_XCB_SUPPORT=OFF, -DBUILD_WSI_XLIB_SUPPORT=OFF -DBUILD_WSI_XCB_SUPPORT=OFF"
+PACKAGECONFIG[x11] = "-DBUILD_WSI_XLIB_SUPPORT=ON -DBUILD_WSI_XCB_SUPPORT=ON, -DBUILD_WSI_XLIB_SUPPORT=OFF -DBUILD_WSI_XCB_SUPPORT=OFF, libxcb libx11 libxrandr"
 PACKAGECONFIG[wayland] = "-DBUILD_WSI_WAYLAND_SUPPORT=ON, -DBUILD_WSI_WAYLAND_SUPPORT=OFF, wayland"
 
+# RRECOMMENDS:${PN} = "mesa-vulkan-drivers"
 
+# These recipes need to be updated in lockstep with each other:
+# glslang, vulkan-headers, vulkan-loader, vulkan-tools, spirv-headers, spirv-tools,
+# vulkan-validation-layers, vulkan-utility-libraries.
+# The tags versions should always be sdk-x.y.z, as this is what
+# upstream considers a release.
 UPSTREAM_CHECK_GITTAGREGEX = "sdk-(?P<pver>\d+(\.\d+)+)"
-
-LEAD_SONAME="libvulkan.so"
-FILES:${PN} += "/usr/lib/*.so"
-
-CFLAGS += " -Wno-error "
