@@ -50,6 +50,8 @@ PREFERRED_PROVIDER_virtual/refpolicy = " ${@bb.utils.contains('DISTRO_FEATURES',
 DISTRO_FEATURES:remove = "${@bb.utils.contains('MACHINE_FEATURES', 'dm-verity-none', 'dm-verity', '', d)}"
 
 
+# 2. Allow tasks to run even if setscene is missing
+BB_SETSCENE_ENFORCE = "0"
 
 # Allow checking of required and conflicting features across the distro
 IMAGE_CLASSES += "features_check"
