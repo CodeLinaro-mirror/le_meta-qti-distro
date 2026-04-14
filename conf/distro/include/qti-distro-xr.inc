@@ -51,10 +51,6 @@ DISTRO_FEATURES:remove = "${@bb.utils.contains('MACHINE_FEATURES', 'dm-verity-no
 
 
 
-# Allow checking of required and conflicting features across the distro
-IMAGE_CLASSES += "features_check"
-
-
 # This is a list of packages that may have license conflicts.
 # Carefully check individual package licences while adding
 # as part of an image to avoid implications.
