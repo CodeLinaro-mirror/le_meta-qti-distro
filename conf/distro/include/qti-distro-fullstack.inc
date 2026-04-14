@@ -5,6 +5,8 @@
 
 # Get basic distro configuration
 require conf/distro/include/qti-distro-base.inc
+# Get non-gplv3 configuration
+require conf/distro/include/non-gplv3-license.inc
 
 DISTRO_NAME = "QTI Linux full refrence stack distro."
 
