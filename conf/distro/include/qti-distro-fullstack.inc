@@ -17,13 +17,14 @@ DISTRO_NAME = "QTI Linux full refrence stack distro."
 # fbdev:           Use FBDEV display drivers, provided machine supports it.
 # opencl:          Include the Open Computing Language
 # opengl:          Include the Open Graphics Library,
+# vulkan:          Include vulkan Graphics Library
 # pulseaudio:      Use pulseaudio audio server
 # selinux:         Use selinux for mandatory access control.
 # tensorflow-lite: Include the tensorflow lite inference engine.
 # wayland:         Include the Wayland display server protocol.
 # pam:             Include pam which is needed by fscrypt.
 
-DISTRO_FEATURES:append = " drm dm-verity fbdev opencl opengl pulseaudio selinux pam wayland"
+DISTRO_FEATURES:append = " drm dm-verity fbdev opencl opengl vulkan pulseaudio selinux pam wayland"
 
 ## QTI defined distro features ##
 # qti-afr-algo:  Support QTI Auto framing algo
@@ -42,9 +43,6 @@ DISTRO_FEATURES:append = " drm dm-verity fbdev opencl opengl pulseaudio selinux 
 # qti-adk:       Support QTI ADK solution
 
 DISTRO_FEATURES:append = " qti-audio qti-bluetooth qti-camera qti-video qti-video-encoder qti-video-decoder qti-cdsp qti-adsp qti-fastcv qti-qmmf qti-security qti-vble qwesd qti-afr-algo tensorflow-lite qti-adk"
-
-# Allow checking of required and conflicting features across the distro
-IMAGE_CLASSES += "features_check"
 
 # Include in native DISTRO_FEATURES if present in the target DISTRO_FEATURES.
 DISTRO_FEATURES_FILTER_NATIVE += " selinux"
