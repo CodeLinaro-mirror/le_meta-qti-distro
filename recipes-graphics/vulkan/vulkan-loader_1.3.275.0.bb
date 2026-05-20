@@ -9,14 +9,12 @@ SECTION = "libs"
 
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=7dbefed23242760aa3475ee42801c5ac"
-SRC_URI = "${CLO_LE_GIT}/external/khronosgroup/vulkan-loader.git;protocol=https;branch=khronosvull/vulkan-sdk-1.3.275"
+SRC_URI = "git://github.com/KhronosGroup/Vulkan-Loader.git;branch=vulkan-sdk-1.3.275;protocol=https"
 SRCREV = "00893b9a03e526aec2c5bf487521d16dfa435229"
 
 S = "${WORKDIR}/git"
 
-# REQUIRED_DISTRO_FEATURES = "vulkan"
-## only selecting wayland configuration and not x11
-ANY_OF_DISTRO_FEATURES = "wayland"
+REQUIRED_DISTRO_FEATURES = "vulkan"
 
 inherit cmake features_check pkgconfig
 
@@ -35,7 +33,7 @@ PACKAGECONFIG ??= "${@bb.utils.filter('DISTRO_FEATURES', 'wayland x11', d)}"
 PACKAGECONFIG[x11] = "-DBUILD_WSI_XLIB_SUPPORT=ON -DBUILD_WSI_XCB_SUPPORT=ON, -DBUILD_WSI_XLIB_SUPPORT=OFF -DBUILD_WSI_XCB_SUPPORT=OFF, libxcb libx11 libxrandr"
 PACKAGECONFIG[wayland] = "-DBUILD_WSI_WAYLAND_SUPPORT=ON, -DBUILD_WSI_WAYLAND_SUPPORT=OFF, wayland"
 
-# RRECOMMENDS:${PN} = "mesa-vulkan-drivers"
+RRECOMMENDS:${PN} = "mesa-vulkan-drivers"
 
 # These recipes need to be updated in lockstep with each other:
 # glslang, vulkan-headers, vulkan-loader, vulkan-tools, spirv-headers, spirv-tools,
