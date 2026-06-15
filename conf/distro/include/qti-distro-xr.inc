@@ -41,8 +41,7 @@ DISTRO_FEATURES:append = " qti-audio-cal qti-audio-encoder qti-bluetooth qti-cam
 #Use - DISTRO_FEATURES:remove = 'selinux'
 DISTRO_FEATURES_FILTER_NATIVE:append = " ${@bb.utils.contains('DISTRO_FEATURES', 'selinux', ' selinux', '', d)}"
 DISTRO_EXTRA_RDEPENDS:append = " ${@bb.utils.contains('DISTRO_FEATURES', 'selinux', ' packagegroup-selinux-minimal', '', d)}"
-PREFERRED_PROVIDER_virtual/refpolicy = " ${@bb.utils.contains('DISTRO_FEATURES', 'selinux', ' refpolicy-mls-xr', '', d)}"
-
+PREFERRED_PROVIDER_virtual/refpolicy = "${@bb.utils.contains('DISTRO_FEATURES', 'selinux', 'refpolicy-mls-xr', '', d)}"
 
 #To remove dm-verity from distro, when dm-verity-none.
 #Use - MACHINE_FEATURES:remove = "dm-verity-initramfs-v2"
@@ -52,10 +51,6 @@ DISTRO_FEATURES:remove = "${@bb.utils.contains('MACHINE_FEATURES', 'dm-verity-no
 
 # 2. Allow tasks to run even if setscene is missing
 BB_SETSCENE_ENFORCE = "0"
-
-# Allow checking of required and conflicting features across the distro
-IMAGE_CLASSES += "features_check"
-
 
 # This is a list of packages that may have license conflicts.
 # Carefully check individual package licences while adding
