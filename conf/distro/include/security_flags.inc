@@ -69,6 +69,9 @@ SECURITY_CFLAGS:pn-lib32-qmmf-sdk = "${SECURITY_PIC_CFLAGS}"
 # ROS packages
 SECURITY_CFLAGS:pn-yaml-cpp = "${SECURITY_PIC_CFLAGS}"
 
+# OPENCV dependency packages
+SECURITY_CFLAGS:pn-tbb = "${SECURITY_PIC_CFLAGS}"
+
 #
 ### PACKAGES which can't compile with _FORTIFY_SOURCE
 #
