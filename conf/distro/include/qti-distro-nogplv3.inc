@@ -12,16 +12,16 @@ DISTRO_NAME = "QTI Linux nogplv3 distro."
 INHERIT += "features_check"
 
 # Add Incompatible license details
-INCOMPATIBLE_LICENSE += "GPL-3.0 LGPL-3.0 AGPL-3.0"
+INCOMPATIBLE_LICENSE += "GPL-3.0* LGPL-3.0* AGPL-3.0*"
 
 # Except recipes part of ALLOWED_GPLV2_RECIPES mask all other recipes
 # from meta-gplv2 to avoid misuse
-ALLOWED_GPLV2_RECIPES ?= "bash|elfutils|gettext|gdbm|m4|readline|coreutils"
+ALLOWED_GPLV2_RECIPES ?= "bash|elfutils|gettext|gdbm|m4|readline|coreutils|gawk|tar"
 BBMASK += "meta-gplv2/recipes-.*/((?!${ALLOWED_GPLV2_RECIPES}).)*/"
 
-DISTRO_FEATURES:remove = " emmc-boot qti-ab-boot"
+DISTRO_FEATURES:remove = " emmc-boot "
 
-DISTRO_FEATURES:append = " selinux nand-boot qti-vble"
+DISTRO_FEATURES:append = " selinux nand-boot qti-vble qti-ab-boot "
 DISTRO_FEATURES_FILTER_NATIVE += " selinux"
 
 # This is a list of packages that may have license conflicts.
