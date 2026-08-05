@@ -130,6 +130,6 @@ require conf/distro/include/yocto-uninative.inc
 INHERIT += "uninative"
 
 # GCC Version
-GCCVERSION = "13.4%"
+GCCVERSION = "13.3%"
 
 IMAGE_CLASSES += "${@['populate_sdk_base', 'populate_sdk_ext populate_sdk_ext_post_install']['linux' in d.getVar("SDK_OS")]}"
