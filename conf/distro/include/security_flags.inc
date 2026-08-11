@@ -3,10 +3,10 @@ require ${COREBASE}/meta/conf/distro/include/security_flags.inc
 
 # Modify the primary security flag definitions of yocto
 # _FORTIFY_SOURCE requires -O1 or higher, otherwise results in a compiler warning.
-SECURITY_PIE_CFLAGS = "-fstack-protector-strong -pie -fPIE -D_FORTIFY_SOURCE=2 -Wa,--noexecstack ${SECURITY_STRINGFORMAT}"
+SECURITY_PIE_CFLAGS = "${SECURITY_STACK_PROTECTOR} -pie -fPIE -D_FORTIFY_SOURCE=2 -Wa,--noexecstack ${SECURITY_STRINGFORMAT}"
 
 # For usage by packages which needs position independent code that can be linked into shared libraires.
-SECURITY_PIC_CFLAGS = "-fstack-protector-strong -fPIC -D_FORTIFY_SOURCE=2 -Wa,--noexecstack ${SECURITY_STRINGFORMAT}"
+SECURITY_PIC_CFLAGS = "${SECURITY_STACK_PROTECTOR} -fPIC -D_FORTIFY_SOURCE=2 -Wa,--noexecstack ${SECURITY_STRINGFORMAT}"
 
 SECURITY_CFLAGS = "${SECURITY_PIE_CFLAGS}"
 SECURITY_LDFLAGS = "-Wl,-z,relro,-z,now,-z,noexecstack"
@@ -59,6 +59,36 @@ SECURITY_CFLAGS:pn-bt-property = "${SECURITY_PIC_CFLAGS}"
 SECURITY_CFLAGS:pn-bt-app = "${SECURITY_PIC_CFLAGS}"
 SECURITY_CFLAGS:pn-libbt-vendor = "${SECURITY_PIC_CFLAGS}"
 SECURITY_CFLAGS:pn-fluoride = "${SECURITY_PIC_CFLAGS}"
+
+# Qualcomm-only No-Canary tightening.
+# Derived from checksec_result.csv + pkgdata mapping, limited to
+# Qualcomm proprietary recipes/packages only.
+SECURITY_STACK_PROTECTOR:pn-diag = "-fstack-protector-all"
+SECURITY_STACK_PROTECTOR:pn-securemsm-noship = "-fstack-protector-all"
+SECURITY_STACK_PROTECTOR:pn-securemsm-internal = "-fstack-protector-all"
+# Force RELRO/NOW for securemsm-internal test binaries/libs (fbe_ut/qcedev_test/qrngtest/smcinvoke_vendor_client/libsmcinvoketest_utils)
+SECURITY_LDFLAGS:pn-securemsm-internal = "-Wl,-z,relro,-z,now,-z,noexecstack"
+
+# Force PIE + RELRO/NOW for breakpadsample  / valgrind
+SECURITY_CFLAGS:remove:pn-valgrind = "${SECURITY_NOPIE_CFLAGS}"
+SECURITY_CFLAGS:append:pn-valgrind = " ${SECURITY_PIE_CFLAGS}"
+SECURITY_LDFLAGS:pn-valgrind = "-Wl,-z,relro,-z,now,-z,noexecstack"
+SECURITY_CFLAGS:pn-valgrind:forcevariable = "${SECURITY_PIE_CFLAGS}"
+SECURITY_LDFLAGS:pn-breakpadsample = "-Wl,-z,relro,-z,now,-z,noexecstack"
+SECURITY_CFLAGS:pn-breakpadsample = "${SECURITY_PIE_CFLAGS}"
+
+SECURITY_STACK_PROTECTOR:pn-acdbdata = "-fstack-protector-all"
+SECURITY_STACK_PROTECTOR:pn-args = "-fstack-protector-all"
+SECURITY_STACK_PROTECTOR:pn-data = "-fstack-protector-all"
+SECURITY_STACK_PROTECTOR:pn-qal = "-fstack-protector-all"
+SECURITY_STACK_PROTECTOR:pn-media-external = "-fstack-protector-all"
+SECURITY_STACK_PROTECTOR:pn-qmi-framework = "-fstack-protector-all"
+SECURITY_STACK_PROTECTOR:pn-powermanager-qmilib = "-fstack-protector-all"
+SECURITY_STACK_PROTECTOR:pn-qmi = "-fstack-protector-all"
+SECURITY_STACK_PROTECTOR:pn-telux-services-qcril = "-fstack-protector-all"
+SECURITY_STACK_PROTECTOR:pn-display-noship-linux = "-fstack-protector-all"
+SECURITY_STACK_PROTECTOR:pn-qutest = "-fstack-protector-all"
+SECURITY_STACK_PROTECTOR:pn-abctl = "-fstack-protector-all"
 
 # MM packages
 SECURITY_CFLAGS:pn-display-hal = "${SECURITY_PIC_CFLAGS}"
