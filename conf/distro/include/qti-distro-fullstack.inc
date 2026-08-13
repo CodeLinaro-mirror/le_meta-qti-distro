@@ -17,13 +17,14 @@ DISTRO_NAME = "QTI Linux full refrence stack distro."
 # fbdev:           Use FBDEV display drivers, provided machine supports it.
 # opencl:          Include the Open Computing Language
 # opengl:          Include the Open Graphics Library,
+# vulkan:          Include vulkan Graphics Library
 # pulseaudio:      Use pulseaudio audio server
 # selinux:         Use selinux for mandatory access control.
 # tensorflow-lite: Include the tensorflow lite inference engine.
 # wayland:         Include the Wayland display server protocol.
 # pam:             Include pam which is needed by fscrypt.
 
-DISTRO_FEATURES:append = " drm dm-verity fbdev opencl opengl pulseaudio selinux pam wayland"
+DISTRO_FEATURES:append = " drm dm-verity fbdev opencl opengl vulkan pulseaudio selinux pam wayland"
 
 ## QTI defined distro features ##
 # qti-afr-algo:  Support QTI Auto framing algo
