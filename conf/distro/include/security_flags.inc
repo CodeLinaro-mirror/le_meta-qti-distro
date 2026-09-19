@@ -72,7 +72,7 @@ SECURITY_CFLAGS:pn-yaml-cpp = "${SECURITY_PIC_CFLAGS}"
 #
 ### PACKAGES which can't compile with _FORTIFY_SOURCE
 #
-SECURITY_CFLAGS:remove:pn-npu= "-D_FORTIFY_SOURCE=2"
+SECURITY_CFLAGS:remove:pn-npu = "-D_FORTIFY_SOURCE=2"
 SECURITY_CFLAGS:remove:pn-ebtables = "-D_FORTIFY_SOURCE=2"
 
 #

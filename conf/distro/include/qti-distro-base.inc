@@ -5,7 +5,7 @@
 ######################################################################
 
 # Pull in security flags
-require ${COREBASE}/meta-qti-distro/conf/distro/include/security_flags.inc
+require ${WORKSPACEROOT}/poky/meta-qti-distro/conf/distro/include/security_flags.inc
 
 # DISTRO CONFIGURATION
 DISTRO_VERSION ?= "${BUILDNAME}"
@@ -96,7 +96,7 @@ DISTRO_FEATURES += " emmc-boot qti-wifi qti-ab-boot"
 
 # Use systemd init manager for system initialization.
 INIT_MANAGER = "systemd"
-DISTRO_FEATURES_BACKFILL_CONSIDERED:append = " pulseaudio"
+DISTRO_FEATURES_OPTED_OUT:append = " pulseaudio"
 VIRTUAL-RUNTIME_dev_manager = "udev"
 
 # Change Image features for systemd.
