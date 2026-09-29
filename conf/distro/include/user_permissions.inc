@@ -2,7 +2,7 @@ USERADD_PACKAGES ?= "${PN}"
 
 USERADD_PARAM:${PN} ?= 	" \
 			-u 5002 -U leprop; \
-			-u 1000 -U system; \
+			-u 1000 -N -g system system; \
 			-u 1001 -U radio; \
 			-G leprop -u 1002 -U bluetooth; \
 			-u 1003 -U graphics; \
@@ -29,6 +29,7 @@ USERADD_PARAM:${PN} ?= 	" \
 			"
 
 GROUPADD_PARAM:${PN} ?=	" \
+                        -f -g 1000 system; \
                         -g 2901 kmsg; \
 			-g 3004 net_raw; \
 			-g 3005 net_admin; \
