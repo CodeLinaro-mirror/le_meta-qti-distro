@@ -49,8 +49,6 @@ PREFERRED_PROVIDER_virtual/refpolicy = "${@bb.utils.contains('DISTRO_FEATURES', 
 DISTRO_FEATURES:remove = "${@bb.utils.contains('MACHINE_FEATURES', 'dm-verity-none', 'dm-verity', '', d)}"
 
 
-# 2. Allow tasks to run even if setscene is missing
-BB_SETSCENE_ENFORCE = "0"
 
 # This is a list of packages that may have license conflicts.
 # Carefully check individual package licences while adding
